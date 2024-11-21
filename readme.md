@@ -25,3 +25,15 @@
 - [ ] The password must be encrypted.
 - [ ] Application data needs to be persisted in a PostgreSQL database.
 - [ ] The authentication needs to be by a JWT (JSON Web Token).
+
+## Usage
+
+Install dependencies
+```
+npm install
+```
+
+Run database
+```
+docker compose up -d
+```
