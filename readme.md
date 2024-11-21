@@ -3,8 +3,7 @@
 ## Aplication Rules
 
 ### Functional Requirements
-- [ ] It must be possible to register a user.
-- [ ] It must be possible to authenticate a user.
+
 - [ ] It must be possible to register a pet.
 - [ ] It must be possible to list all pets available for adoption in a city.
 - [ ] It must be possible to filter pets by their characteristics.
@@ -23,6 +22,6 @@
 
 ### Non-functional Requirements
 
-- [ ] The user password must be encrypted.
+- [ ] The password must be encrypted.
 - [ ] Application data needs to be persisted in a PostgreSQL database.
-- [ ] The user needs to be authenticated by a JWT (JSON Web Token).
+- [ ] The authentication needs to be by a JWT (JSON Web Token).
