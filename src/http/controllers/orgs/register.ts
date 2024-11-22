@@ -1,7 +1,8 @@
+import { RegisterUseCase } from '@/use-cases/register'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 
-export async function create(request: FastifyRequest, reply: FastifyReply) {
+export async function register(request: FastifyRequest, reply: FastifyReply) {
   const createBodySchema = z.object({
     name: z.string(),
     email: z.string().email(),
@@ -34,7 +35,24 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     longitude,
   } = createBodySchema.parse(request.body)
 
-  console.log(createBodySchema.parse(request.body))
+  try {
+    const registerUseCase = await new RegisterUseCase()
+
+    registerUseCase.execute({
+      name,
+      email,
+      password,
+      phone,
+      city,
+      state,
+      street,
+      number,
+      latitude,
+      longitude,
+    })
+  } catch (err) {
+    throw new Error()
+  }
 
   return reply.status(201).send()
 }
