@@ -1,4 +1,4 @@
-import { PrismaOrgsRepository } from '@/repositories/prisma-orgs-repository'
+import { OrgsRepository } from '@/repositories/orgs-repository'
 import { Org } from '@prisma/client'
 import bcrypt from 'bcryptjs'
 
@@ -20,6 +20,8 @@ interface RegisterUseCaseResponse {
 }
 
 export class RegisterUseCase {
+  constructor(private orgsRepository: OrgsRepository) {}
+
   async execute({
     name,
     email,
@@ -34,9 +36,7 @@ export class RegisterUseCase {
   }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
     const password_hash = await bcrypt.hash(password, 6)
 
-    const prismaOrgsRepository = new PrismaOrgsRepository()
-
-    const org = await prismaOrgsRepository.create({
+    const org = await this.orgsRepository.create({
       name,
       email,
       password_hash,

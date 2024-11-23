@@ -8,7 +8,7 @@
 - [ ] It must be possible to list all pets available for adoption in a city.
 - [ ] It must be possible to filter pets by their characteristics.
 - [ ] It must be possible to view details of a pet available for adoption.
-- [ ] It must be possible to register as an ORG.
+- [x] It must be possible to register as an ORG.
 - [ ] It must be possible to log in as an ORG.
 
 ### Business Rules
@@ -22,8 +22,8 @@
 
 ### Non-functional Requirements
 
-- [ ] The password must be encrypted.
-- [ ] Application data needs to be persisted in a PostgreSQL database.
+- [x] The password must be encrypted.
+- [x] Application data needs to be persisted in a PostgreSQL database.
 - [ ] The authentication needs to be by a JWT (JSON Web Token).
 
 ## Usage
