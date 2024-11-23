@@ -36,6 +36,12 @@ export class RegisterUseCase {
   }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
     const password_hash = await bcrypt.hash(password, 6)
 
+    const orgWithSameEmail = await this.orgsRepository.findByEmail(email)
+
+    if (orgWithSameEmail) {
+      throw new Error('Org already exists.')
+    }
+
     const org = await this.orgsRepository.create({
       name,
       email,
