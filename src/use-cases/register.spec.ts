@@ -2,7 +2,6 @@ import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-
 import { beforeEach, describe, expect, it } from 'vitest'
 import { RegisterUseCase } from './register'
 import { compare } from 'bcryptjs'
-import exp from 'constants'
 import { OrgAlreadyExistsError } from './errors/org-already-exists-error'
 
 let orgsRepository = new InMemoryOrgsRepository()
