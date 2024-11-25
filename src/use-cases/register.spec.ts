@@ -4,7 +4,7 @@ import { RegisterUseCase } from './register'
 import { compare } from 'bcryptjs'
 import { OrgAlreadyExistsError } from './errors/org-already-exists-error'
 
-let orgsRepository = new InMemoryOrgsRepository()
+let orgsRepository: InMemoryOrgsRepository
 let sut: RegisterUseCase
 
 describe('Register Use Case', () => {

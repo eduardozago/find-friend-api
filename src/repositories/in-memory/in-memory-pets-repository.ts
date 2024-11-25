@@ -1,11 +1,13 @@
 import { Pet, Prisma } from '@prisma/client'
 import { PetsRepository } from '../pets-repository'
+import { randomUUID } from 'crypto'
 
 export class InMemoryPetsRepository implements PetsRepository {
   public items: Pet[] = []
 
   async create(data: Prisma.PetCreateInput) {
     const pet = {
+      id: randomUUID(),
       name: data.name,
       about: data.about,
       type: data.type,

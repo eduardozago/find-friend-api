@@ -4,7 +4,7 @@ import { hash } from 'bcryptjs'
 import { AuthenticateUseCase } from './authenticate'
 import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 
-let orgsRepository = new InMemoryOrgsRepository()
+let orgsRepository: InMemoryOrgsRepository
 let sut: AuthenticateUseCase
 
 describe('Authenticate Use Case', () => {
