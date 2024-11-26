@@ -46,7 +46,7 @@ docker compose up -d
 - [x] It must be possible to register a pet.
 - [ ] It must be possible to list all pets available for adoption in a city.
 - [ ] It must be possible to filter pets by their characteristics.
-- [ ] It must be possible to view details of a pet available for adoption.
+- [x] It must be possible to view details of a pet available for adoption.
 - [x] It must be possible to register as an ORG.
 - [x] It must be possible to log in as an ORG.
 
