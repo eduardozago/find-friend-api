@@ -15,6 +15,16 @@ export class InMemoryPetsRepository implements PetsRepository {
     return org
   }
 
+  findByOrg(orgId: string): Promise<Pet[] | null> {
+    const pets = this.items.filter((item) => item.org_id === orgId)
+
+    if (!pets) {
+      return null
+    }
+
+    return pets
+  }
+
   async create(data: Prisma.PetCreateInput) {
     const pet = {
       id: randomUUID(),

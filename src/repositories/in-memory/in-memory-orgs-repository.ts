@@ -25,6 +25,16 @@ export class InMemoryOrgsRepository implements OrgsRepository {
     return org
   }
 
+  async findByCity(city: string) {
+    const orgs = this.items.filter((item) => item.city === city)
+
+    if (orgs.length === 0) {
+      return null
+    }
+
+    return orgs
+  }
+
   async create(data: Prisma.OrgCreateInput) {
     const org = {
       id: data.id ?? randomUUID(),
