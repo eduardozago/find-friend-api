@@ -1,8 +1,6 @@
 import { InMemoryOrgsRepository } from '@/repositories/in-memory/in-memory-orgs-repository'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { hash } from 'bcryptjs'
-import { getPetUseCase } from './authenticate'
-import { InvalidCredentialsError } from './errors/invalid-credentials-error'
 import { InMemoryPetsRepository } from '@/repositories/in-memory/in-memory-pets-repository'
 import { getPetUseCase } from './get-pet-use-case'
 import { ResourceNotFoundError } from './errors/resource-not-found-error'
