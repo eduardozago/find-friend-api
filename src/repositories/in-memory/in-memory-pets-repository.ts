@@ -15,11 +15,23 @@ export class InMemoryPetsRepository implements PetsRepository {
     return org
   }
 
-  findByOrg(orgId: string): Promise<Pet[] | null> {
-    const pets = this.items.filter((item) => item.org_id === orgId)
+  async findByCharacteristics(
+    orgId: string,
+    type?: string,
+    size?: string,
+  ): Promise<Pet[] | null> {
+    let pets = this.items.filter((item) => item.org_id === orgId)
 
-    if (!pets) {
+    if (pets.length === 0) {
       return null
+    }
+
+    if (type) {
+      pets = pets.filter((pet) => pet.type === type)
+    }
+
+    if (size) {
+      pets = pets.filter((pet) => pet.size === size)
     }
 
     return pets

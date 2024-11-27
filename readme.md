@@ -44,19 +44,19 @@ docker compose up -d
 ### Functional Requirements
 
 - [x] It must be possible to register a pet.
-- [ ] It must be possible to list all pets available for adoption in a city.
-- [ ] It must be possible to filter pets by their characteristics.
+- [x] It must be possible to list all pets available for adoption in a city.
+- [x] It must be possible to filter pets by their characteristics.
 - [x] It must be possible to view details of a pet available for adoption.
 - [x] It must be possible to register as an ORG.
 - [x] It must be possible to log in as an ORG.
 
 ### Business Rules
 
-- [ ] To list pets, it is mandatory to provide the city.
-- [ ] An ORG must have an address and a WhatsApp number.
-- [ ] A pet must be associated with an ORG.
-- [ ] A user who wants to adopt will contact the ORG via WhatsApp.
-- [ ] All filters, except for the city, are optional.
+- [x] To list pets, it is mandatory to provide the city.
+- [x] An ORG must have an address and a WhatsApp number.
+- [x] A pet must be associated with an ORG.
+- [x] A user who wants to adopt will contact the ORG via WhatsApp.
+- [x] All filters, except for the city, are optional.
 - [ ] For an ORG to access the application as an admin, it must be logged in.
 
 ### Non-functional Requirements

@@ -5,6 +5,8 @@ import { ResourceNotFoundError } from './errors/resource-not-found-error'
 
 interface FetchPetsUseCaseRequest {
   city: string
+  type?: string
+  size?: string
 }
 
 interface FetchPetsUseCaseResponse {
@@ -19,6 +21,8 @@ export class FetchPetsUseCase {
 
   async execute({
     city,
+    type,
+    size,
   }: FetchPetsUseCaseRequest): Promise<FetchPetsUseCaseResponse> {
     const orgs = await this.orgsRepository.findByCity(city)
 
@@ -29,7 +33,12 @@ export class FetchPetsUseCase {
     const pets = []
 
     for (const org of orgs) {
-      const orgPets = await this.petsRepository.findByOrg(org.id)
+      const orgPets = await this.petsRepository.findByCharacteristics(
+        org.id,
+        type,
+        size,
+      )
+
       pets.push(...orgPets)
     }
 

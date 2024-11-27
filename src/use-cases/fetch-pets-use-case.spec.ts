@@ -16,7 +16,7 @@ describe('Fetch Pets Use Case', () => {
     sut = new FetchPetsUseCase(petsRepository, orgsRepository)
   })
 
-  it('should be able to get a pet', async () => {
+  it('should be able to get a pet by city', async () => {
     const firstOrg = await orgsRepository.create({
       name: 'First ORG',
       email: 'firstorg@example.com',
@@ -83,5 +83,126 @@ describe('Fetch Pets Use Case', () => {
         city: 'Undefined City',
       }),
     ).rejects.toBeInstanceOf(ResourceNotFoundError)
+  })
+
+  it('should be able to get a pet by type', async () => {
+    const org = await orgsRepository.create({
+      name: 'First ORG',
+      email: 'firstorg@example.com',
+      password_hash: await hash('123456', 6),
+      phone: '(555) 123-4567',
+      city: 'Springfield',
+      state: 'IL',
+      street: 'Maple Avenue',
+      number: '1234',
+      latitude: 39.7817,
+      longitude: -89.6501,
+    })
+
+    await petsRepository.create({
+      name: 'Rocky',
+      about: 'A friendly dog',
+      type: 'Dog',
+      age: '2 years',
+      size: 'Small',
+      org: org.id,
+    })
+
+    await petsRepository.create({
+      name: 'Luna',
+      about: 'A playful dog who loves to hop around',
+      type: 'Dog',
+      age: '1 year',
+      size: 'Medium',
+      org: org.id,
+    })
+
+    const petsList = await sut.execute({
+      city: 'Springfield',
+      type: 'Dog',
+    })
+
+    expect(petsList.pets.length).toEqual(2)
+  })
+
+  it('should be able to get a pet by size', async () => {
+    const org = await orgsRepository.create({
+      name: 'First ORG',
+      email: 'firstorg@example.com',
+      password_hash: await hash('123456', 6),
+      phone: '(555) 123-4567',
+      city: 'Springfield',
+      state: 'IL',
+      street: 'Maple Avenue',
+      number: '1234',
+      latitude: 39.7817,
+      longitude: -89.6501,
+    })
+
+    await petsRepository.create({
+      name: 'Rocky',
+      about: 'A friendly dog',
+      type: 'Dog',
+      age: '2 years',
+      size: 'Small',
+      org: org.id,
+    })
+
+    await petsRepository.create({
+      name: 'Luna',
+      about: 'A playful dog who loves to hop around',
+      type: 'Dog',
+      age: '1 year',
+      size: 'Medium',
+      org: org.id,
+    })
+
+    const petsList = await sut.execute({
+      city: 'Springfield',
+      size: 'Small',
+    })
+
+    expect(petsList.pets.length).toEqual(1)
+  })
+
+  it('should be able to get a pet by type and size', async () => {
+    const org = await orgsRepository.create({
+      name: 'First ORG',
+      email: 'firstorg@example.com',
+      password_hash: await hash('123456', 6),
+      phone: '(555) 123-4567',
+      city: 'Springfield',
+      state: 'IL',
+      street: 'Maple Avenue',
+      number: '1234',
+      latitude: 39.7817,
+      longitude: -89.6501,
+    })
+
+    await petsRepository.create({
+      name: 'Rocky',
+      about: 'A friendly dog',
+      type: 'Dog',
+      age: '2 years',
+      size: 'Small',
+      org: org.id,
+    })
+
+    await petsRepository.create({
+      name: 'Luna',
+      about: 'A playful rabbit who loves to hop around',
+      type: 'Rabbit',
+      age: '1 year',
+      size: 'Medium',
+      org: org.id,
+    })
+
+    const petsList = await sut.execute({
+      city: 'Springfield',
+      type: 'Rabbit',
+      size: 'Medium',
+    })
+
+    expect(petsList.pets.length).toEqual(1)
   })
 })
