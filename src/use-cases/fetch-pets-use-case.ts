@@ -32,6 +32,14 @@ export class FetchPetsUseCase {
 
     const pets = []
 
+    if (type) {
+      type = type.toLowerCase()
+    }
+
+    if (size) {
+      size = size.toLowerCase()
+    }
+
     for (const org of orgs) {
       const orgPets = await this.petsRepository.findByCharacteristics(
         org.id,

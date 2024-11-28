@@ -36,6 +36,9 @@ export class CreatePetUseCase {
       throw new ResourceNotFoundError()
     }
 
+    type = type.toLowerCase()
+    size = size.toLowerCase()
+
     const pet = await this.petsRepository.create({
       name,
       about,
