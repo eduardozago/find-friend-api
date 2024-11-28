@@ -102,18 +102,18 @@ describe('Fetch Pets Use Case', () => {
     await petsRepository.create({
       name: 'Rocky',
       about: 'A friendly dog',
-      type: 'Dog',
+      type: 'dog',
       age: '2 years',
-      size: 'Small',
+      size: 'small',
       org: org.id,
     })
 
     await petsRepository.create({
       name: 'Luna',
       about: 'A playful dog who loves to hop around',
-      type: 'Dog',
+      type: 'dog',
       age: '1 year',
-      size: 'Medium',
+      size: 'medium',
       org: org.id,
     })
 
@@ -142,18 +142,18 @@ describe('Fetch Pets Use Case', () => {
     await petsRepository.create({
       name: 'Rocky',
       about: 'A friendly dog',
-      type: 'Dog',
+      type: 'dog',
       age: '2 years',
-      size: 'Small',
+      size: 'small',
       org: org.id,
     })
 
     await petsRepository.create({
       name: 'Luna',
       about: 'A playful dog who loves to hop around',
-      type: 'Dog',
+      type: 'dog',
       age: '1 year',
-      size: 'Medium',
+      size: 'medium',
       org: org.id,
     })
 
@@ -182,18 +182,18 @@ describe('Fetch Pets Use Case', () => {
     await petsRepository.create({
       name: 'Rocky',
       about: 'A friendly dog',
-      type: 'Dog',
+      type: 'dog',
       age: '2 years',
-      size: 'Small',
+      size: 'small',
       org: org.id,
     })
 
     await petsRepository.create({
       name: 'Luna',
       about: 'A playful rabbit who loves to hop around',
-      type: 'Rabbit',
+      type: 'rabbit',
       age: '1 year',
-      size: 'Medium',
+      size: 'medium',
       org: org.id,
     })
 
