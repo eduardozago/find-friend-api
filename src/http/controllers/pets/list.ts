@@ -14,9 +14,7 @@ export async function list(request: FastifyRequest, reply: FastifyReply) {
 
   const { city } = listParamsSchema.parse(request.params)
 
-  const body = listBodySchema.parse(request.body)
-
-  const { type, size } = body
+  const { type, size } = listBodySchema.parse(request.body || {})
 
   const fetchPets = MakeFetchPetsUseCase()
 
