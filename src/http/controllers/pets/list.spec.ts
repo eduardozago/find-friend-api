@@ -8,19 +8,23 @@ describe('List Pets (e2e)', () => {
   beforeAll(async () => {
     await app.ready()
 
-    const firstOrg = await createAndAuthenticateOrg(app)
-    const secondOrg = await createAndAuthenticateOrg(app, {
-      name: 'Second Org',
-      email: 'secondorg@example.com',
-      password_hash: await hash('123123', 6),
-      phone: '(555) 987-6543',
-      city: 'Riverside',
-      state: 'CA',
-      street: 'Oak Street',
-      number: '5678',
-      latitude: 33.98,
-      longitude: -117.375,
-    })
+    const firstOrg = await createAndAuthenticateOrg(app, undefined, true)
+    const secondOrg = await createAndAuthenticateOrg(
+      app,
+      {
+        name: 'Second Org',
+        email: 'secondorg@example.com',
+        password_hash: await hash('123123', 6),
+        phone: '(555) 987-6543',
+        city: 'Riverside',
+        state: 'CA',
+        street: 'Oak Street',
+        number: '5678',
+        latitude: 33.98,
+        longitude: -117.375,
+      },
+      true,
+    )
 
     await request(app.server)
       .post('/pets')

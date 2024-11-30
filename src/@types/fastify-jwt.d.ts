@@ -4,6 +4,7 @@ declare module '@fastify/jwt' {
   export interface FastifyJWT {
     org: {
       sub: string
+      role: 'ADMIN' | 'MEMBER'
     }
   }
 }

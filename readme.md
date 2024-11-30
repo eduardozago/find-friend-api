@@ -57,10 +57,10 @@ docker compose up -d
 - [x] A pet must be associated with an ORG.
 - [x] A user who wants to adopt will contact the ORG via WhatsApp.
 - [x] All filters, except for the city, are optional.
-- [ ] For an ORG to access the application as an admin, it must be logged in.
+- [x] For an ORG to access the application as an admin, it must be logged in.
 
 ### Non-functional Requirements
 
 - [x] The password must be encrypted.
 - [x] Application data needs to be persisted in a PostgreSQL database.
-- [ ] The authentication needs to be by a JWT (JSON Web Token).
+- [x] The authentication needs to be by a JWT (JSON Web Token).
