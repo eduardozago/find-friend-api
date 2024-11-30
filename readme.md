@@ -23,6 +23,9 @@ For this project, the following (essential for execution) resources were used:
 
 ## Features
 
+ - Create Org
+ - Authenticate Org
+
 ## Usage
 
 Install dependencies
