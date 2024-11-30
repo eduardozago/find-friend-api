@@ -15,7 +15,5 @@ export async function profile(request: FastifyRequest, reply: FastifyReply) {
     petId,
   })
 
-  return reply.status(200).send({
-    pet,
-  })
+  return reply.status(200).send(pet)
 }
